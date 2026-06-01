@@ -41,16 +41,30 @@ load_dotenv(ROOT_DIR / '.env')
 USE_MONGODB = os.environ.get("USE_MONGODB", "false").lower() in ("1", "true", "yes")
 client = None
 db = None
-
-if USE_MONGODB:
-    from motor.motor_asyncio import AsyncIOMotorClient
-    mongo_url = os.environ.get("MONGO_URL", "mongodb://localhost:27017")
-    db_name = os.environ.get("DB_NAME", "vowly")
-    client = AsyncIOMotorClient(mongo_url)
-    db = client[db_name]
+mongo_url = os.environ.get("MONGO_URL", "mongodb://localhost:27017")
+db_name = os.environ.get("DB_NAME", "vowly")
 
 # Create the main app without a prefix
 app = FastAPI()
+
+# Configure CORS early and robustly
+cors_env = os.environ.get('CORS_ORIGINS', '')
+if cors_env:
+    allow_origins = [o.strip() for o in cors_env.split(',') if o.strip()]
+else:
+    allow_origins = ['*']
+
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+logger = logging.getLogger(__name__)
+logger.info(f"CORS allow_origins: {allow_origins}")
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=allow_origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 # Create a router with the /api prefix
 api_router = APIRouter(prefix="/api")
@@ -1057,3 +1071,35 @@ logger = logging.getLogger(__name__)
 async def shutdown_db_client():
     if client is not None:
         client.close()
+
+
+@app.on_event("startup")
+async def startup_db_client():
+    global client, db, USE_MONGODB, mongo_url, db_name
+    if not USE_MONGODB:
+        logger.info("USE_MONGODB is false — running in JSON-only mode")
+        return
+
+    try:
+        from motor.motor_asyncio import AsyncIOMotorClient
+
+        logger.info("Attempting to connect to MongoDB...")
+        client = AsyncIOMotorClient(mongo_url)
+        # perform a quick ping to verify connectivity
+        try:
+            await client.admin.command('ping')
+            db = client[db_name]
+            logger.info("Connected to MongoDB successfully")
+        except Exception as e:
+            logger.error(f"MongoDB ping failed: {e}")
+            client.close()
+            client = None
+            db = None
+            USE_MONGODB = False
+            logger.warning("Falling back to JSON-only mode due to MongoDB connectivity issues")
+    except Exception as e:
+        logger.error(f"Failed to initialize MongoDB client: {e}")
+        client = None
+        db = None
+        USE_MONGODB = False
+        logger.warning("Falling back to JSON-only mode")
