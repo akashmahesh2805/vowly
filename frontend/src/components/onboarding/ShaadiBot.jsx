@@ -90,11 +90,11 @@ export function ShaadiBot({ onDismiss, showOnboarding = true, variant = 'full' }
         </button>
 
         {/* Header with avatar */}
-        <div className="bg-gradient-to-r from-primary/20 via-primary/10 to-amber-100/50 p-6 pb-4">
+        <div className="bg-gradient-to-r from-ethnic-saffron/30 via-secondary to-ethnic-gold/20 p-6 pb-4 border-b border-ethnic-gold/30">
           <div className="flex items-center gap-4">
             {/* Avatar */}
             <div className="relative">
-              <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary to-amber-400 flex items-center justify-center shadow-lg animate-float">
+              <div className="w-16 h-16 rounded-full bg-ethnic-gradient flex items-center justify-center shadow-lg animate-float ring-2 ring-ethnic-gold/50">
                 <span className="text-2xl">🤵</span>
               </div>
               <div className="absolute -bottom-1 -right-1 w-6 h-6 rounded-full bg-green-500 border-2 border-white flex items-center justify-center">
@@ -202,9 +202,9 @@ export function ShaadiMiniBot({ message, onClose }) {
         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
       }`}
     >
-      <Card className="max-w-xs p-4 border-2 border-primary/20 shadow-xl bg-white/95 backdrop-blur">
+      <Card className="max-w-xs p-4 border-2 border-ethnic-gold/40 shadow-xl bg-card/95 backdrop-blur">
         <div className="flex items-start gap-3">
-          <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-amber-400 flex items-center justify-center flex-shrink-0 animate-float">
+          <div className="w-10 h-10 rounded-full bg-ethnic-gradient flex items-center justify-center flex-shrink-0 animate-float">
             <span className="text-lg">🤵</span>
           </div>
           <div className="flex-1">

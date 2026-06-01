@@ -81,17 +81,17 @@ function OrganizerAuthContent() {
   };
 
   return (
-    <div className="min-h-screen bg-white flex">
+    <div className="min-h-screen bg-background flex ethnic-pattern">
       {/* Left Panel - Features */}
       <motion.div 
-        className="hidden lg:flex lg:w-1/2 bg-secondary/30 p-12 flex-col justify-center"
+        className="hidden lg:flex lg:w-1/2 bg-gradient-to-br from-secondary via-background to-ethnic-saffron/10 p-12 flex-col justify-center border-r border-ethnic-gold/30"
         initial={{ opacity: 0, x: -50 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.6 }}
       >
         <div className="max-w-md mx-auto">
           <Link href="/" className="flex items-center gap-2.5 mb-12">
-            <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center">
+            <div className="w-10 h-10 rounded-full bg-ethnic-gradient flex items-center justify-center shadow-md">
               <Heart className="w-5 h-5 text-white fill-white" />
             </div>
             <span className="text-2xl font-serif font-medium tracking-tight">vowly</span>
@@ -100,7 +100,7 @@ function OrganizerAuthContent() {
           <h2 className="text-3xl font-serif font-normal mb-4">
             Plan your dream
             <br />
-            <span className="italic text-primary">wedding</span>
+            <span className="italic text-gradient-ethnic">Indian wedding</span>
           </h2>
           <p className="text-muted-foreground mb-10">
             Everything you need to organize the perfect celebration.
@@ -115,7 +115,7 @@ function OrganizerAuthContent() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 + index * 0.1 }}
               >
-                <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+                <div className="w-10 h-10 rounded-lg bg-ethnic-saffron/25 border border-ethnic-gold/30 flex items-center justify-center flex-shrink-0">
                   <feature.icon className="w-5 h-5 text-primary" />
                 </div>
                 <div>
@@ -138,7 +138,7 @@ function OrganizerAuthContent() {
         <div className="w-full max-w-md">
           {/* Mobile Logo */}
           <div className="lg:hidden flex items-center justify-center gap-2.5 mb-8">
-            <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center">
+            <div className="w-10 h-10 rounded-full bg-ethnic-gradient flex items-center justify-center shadow-md">
               <Heart className="w-5 h-5 text-white fill-white" />
             </div>
             <span className="text-2xl font-serif font-medium tracking-tight">vowly</span>

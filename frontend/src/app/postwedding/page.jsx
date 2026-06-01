@@ -286,7 +286,7 @@ export default function PostWeddingPage() {
   // Loading state
   if (isLoading && weddings.length === 0) {
     return (
-      <div className="min-h-screen bg-white">
+      <div className="page-shell">
         <BotanicalHeader />
         <div className="flex items-center justify-center min-h-[60vh]">
           <Loader2 className="w-8 h-8 animate-spin text-primary" />
@@ -299,7 +299,7 @@ export default function PostWeddingPage() {
   // No weddings state
   if (weddings.length === 0) {
     return (
-      <div className="min-h-screen bg-white">
+      <div className="page-shell">
         <BotanicalHeader />
         <main className="pt-24 pb-20 text-center max-w-xl mx-auto px-6">
           <Camera className="w-16 h-16 mx-auto text-muted-foreground/30 mb-6" />
@@ -312,7 +312,7 @@ export default function PostWeddingPage() {
   }
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="page-shell">
       <BotanicalHeader />
 
       <main className="pt-24 pb-20">

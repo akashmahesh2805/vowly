@@ -226,13 +226,13 @@ import { Card } from '@/components/ui/card';
 
 ### Color Scheme
 
-The template uses a maroon and white color scheme (perfect for hackathons). To customize:
+Vowly uses an Indian ethnic palette — maroon, saffron, gold, and warm ivory — defined in `/frontend/src/app/globals.css`:
 
-Edit `/frontend/src/app/globals.css` and modify the CSS variables:
 ```css
 :root {
-  --primary: 0 68% 42%;  /* Maroon color */
-  /* ... other variables */
+  --primary: 345 72% 32%;   /* Maroon */
+  --accent: 42 88% 48%;     /* Gold */
+  /* saffron, ivory backgrounds via --secondary, --background */
 }
 ```
 

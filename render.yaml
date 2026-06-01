@@ -1,0 +1,32 @@
+services:
+  - type: web
+    name: vowly-backend
+    env: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: cd backend && gunicorn -w 4 -k uvicorn.workers.UvicornWorker server:app --bind 0.0.0.0:8000
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11
+      - key: USE_MONGODB
+        value: "false"
+      - key: CORS_ORIGINS
+        value: https://vowly-frontend.onrender.com
+      - key: GROQ_API_KEY
+        value: ""
+    serviceIdleTimeoutMinutes: 15
+    routes:
+      - type: http
+        path: /api
+        destination: http://vowly-backend.onrender.com:8000/api
+
+  - type: web
+    name: vowly-frontend
+    env: node
+    plan: free
+    buildCommand: cd frontend && npm install && npm run build
+    startCommand: cd frontend && npm start
+    envVars:
+      - key: NEXT_PUBLIC_BACKEND_URL
+        value: https://vowly-backend.onrender.com
+    serviceIdleTimeoutMinutes: 15

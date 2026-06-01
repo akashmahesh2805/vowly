@@ -122,7 +122,7 @@ export default function GuestDashboardPage() {
 
   if (isLoading || authLoading) {
     return (
-      <div className="min-h-screen bg-white"><BotanicalHeader />
+      <div className="page-shell"><BotanicalHeader />
         <div className="flex items-center justify-center min-h-[60vh]"><Loader2 className="w-8 h-8 animate-spin text-primary" /></div>
         <BotanicalFooter />
       </div>
@@ -131,7 +131,7 @@ export default function GuestDashboardPage() {
 
   if (weddings.length === 0) {
     return (
-      <div className="min-h-screen bg-white"><BotanicalHeader />
+      <div className="page-shell"><BotanicalHeader />
         <main className="pt-24 pb-20 text-center max-w-xl mx-auto px-6">
           <PartyPopper className="w-16 h-16 mx-auto text-muted-foreground/30 mb-6" />
           <h1 className="text-3xl font-serif mb-4">No Weddings Found</h1>
@@ -148,7 +148,7 @@ export default function GuestDashboardPage() {
   }
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="page-shell">
       <BotanicalHeader />
 
       <main className="pt-24 pb-20">
@@ -235,15 +235,15 @@ export default function GuestDashboardPage() {
       </main>
 
       {/* Chat FAB */}
-      <motion.button onClick={() => setIsChatOpen(true)} className="fixed bottom-6 right-6 w-14 h-14 rounded-full bg-primary text-white flex items-center justify-center shadow-lg z-40" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+      <motion.button onClick={() => setIsChatOpen(true)} className="fixed bottom-6 right-6 w-14 h-14 rounded-full bg-ethnic-gradient text-white flex items-center justify-center shadow-lg ring-2 ring-ethnic-gold/50 z-40" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
         <MessageCircle className="w-6 h-6" />
       </motion.button>
 
       {/* Chat Drawer */}
       <AnimatePresence>
         {isChatOpen && (
-          <motion.div initial={{ x: '100%' }} animate={{ x: 0 }} exit={{ x: '100%' }} transition={{ type: 'spring', damping: 25, stiffness: 300 }} className="fixed inset-y-0 right-0 w-full md:w-96 bg-white border-l border-border shadow-2xl z-50 flex flex-col">
-            <div className="p-4 border-b border-border flex items-center justify-between bg-primary text-white">
+          <motion.div initial={{ x: '100%' }} animate={{ x: 0 }} exit={{ x: '100%' }} transition={{ type: 'spring', damping: 25, stiffness: 300 }} className="fixed inset-y-0 right-0 w-full md:w-96 bg-card border-l-2 border-ethnic-gold/40 shadow-2xl z-50 flex flex-col">
+            <div className="p-4 border-b border-ethnic-gold/30 flex items-center justify-between bg-ethnic-gradient text-white">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center"><Bot className="w-5 h-5" /></div>
                 <div><p className="font-medium">Guest Assistant</p><p className="text-xs text-white/70">Ask me anything!</p></div>

@@ -281,7 +281,7 @@ export default function HostPage() {
   // Show loading while checking auth
   if (authLoading) {
     return (
-      <div className="min-h-screen bg-white">
+      <div className="page-shell">
         <BotanicalHeader />
         <div className="flex items-center justify-center min-h-[60vh]">
           <Loader2 className="w-8 h-8 animate-spin text-primary" />
@@ -292,7 +292,7 @@ export default function HostPage() {
   }
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="page-shell">
       <BotanicalHeader />
 
       <main className="pt-24 pb-20">

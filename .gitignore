@@ -57,6 +57,14 @@ chainlit.md
 .chainlit
 .ipynb_checkpoints/
 .ac
+.emergent/
+memory/
+test_reports/
+test_result.md
+
+# CRA / no-code tooling leftovers
+frontend/craco.config.js
+frontend/plugins/
 
 # Deployment
 .vercel

@@ -42,12 +42,13 @@ module.exports = {
           DEFAULT: 'hsl(var(--card))',
           foreground: 'hsl(var(--card-foreground))',
         },
-        botanical: {
-          green: '#1B4332',
-          'green-dark': '#143026',
-          'green-light': '#2D6A4F',
-          cream: '#FAFAF8',
-          sage: '#95A88F',
+        ethnic: {
+          maroon: 'hsl(var(--maroon))',
+          saffron: 'hsl(var(--saffron))',
+          gold: 'hsl(var(--gold))',
+          teal: 'hsl(var(--teal))',
+          ivory: '#FFF8EE',
+          cream: '#FFFAF0',
         },
       },
       borderRadius: {
@@ -56,7 +57,7 @@ module.exports = {
         sm: 'calc(var(--radius) - 4px)',
         '2xl': '1rem',
         '3xl': '1.5rem',
-        'full': '9999px',
+        full: '9999px',
       },
       fontFamily: {
         serif: ['var(--font-serif)', 'Georgia', 'serif'],
@@ -70,10 +71,10 @@ module.exports = {
         '8xl': ['5.5rem', { lineHeight: '1' }],
       },
       spacing: {
-        '18': '4.5rem',
-        '22': '5.5rem',
-        '26': '6.5rem',
-        '30': '7.5rem',
+        18: '4.5rem',
+        22: '5.5rem',
+        26: '6.5rem',
+        30: '7.5rem',
       },
       maxWidth: {
         '8xl': '88rem',
@@ -83,8 +84,12 @@ module.exports = {
         'fade-in': 'fade-in 0.5s ease-out forwards',
         'scale-in': 'scale-in 0.4s ease-out forwards',
       },
+      backgroundImage: {
+        'ethnic-gradient': 'linear-gradient(135deg, hsl(var(--maroon)) 0%, hsl(var(--saffron)) 50%, hsl(var(--gold)) 100%)',
+        'hero-warm': 'linear-gradient(160deg, hsl(32 90% 88%) 0%, hsl(38 55% 96%) 50%, hsl(42 70% 98%) 100%)',
+      },
       transitionTimingFunction: {
-        'botanical': 'cubic-bezier(0.4, 0, 0.2, 1)',
+        botanical: 'cubic-bezier(0.4, 0, 0.2, 1)',
       },
     },
   },

@@ -302,32 +302,32 @@ export default function DashboardPage() {
     }
     if (countdown.isLive) {
       return (
-        <div className="card-botanical mb-6 border-primary/30 bg-primary/5">
+        <div className="countdown-ethnic mb-6 p-4">
           <div className="flex items-center justify-center gap-4 py-2">
-            <div className="p-3 rounded-full bg-primary animate-pulse"><PartyPopper className="w-5 h-5 text-white" /></div>
-            <span className="text-lg font-serif font-medium text-primary">{countdownLabel}</span>
+            <div className="p-3 rounded-full bg-white/20 animate-pulse"><PartyPopper className="w-5 h-5 text-white" /></div>
+            <span className="text-lg font-serif font-medium text-white">{countdownLabel}</span>
           </div>
         </div>
       );
     }
     const { days, hours, minutes, seconds } = countdown;
     return (
-      <div className="card-botanical mb-6 border-primary/20">
+      <div className="countdown-ethnic mb-6 p-4 md:p-6">
         <div className="flex flex-col md:flex-row items-center gap-4 md:gap-6">
           <div className="flex items-center gap-3">
-            <div className="p-3 rounded-full bg-primary"><Timer className="w-5 h-5 text-white" /></div>
+            <div className="p-3 rounded-full bg-white/20"><Timer className="w-5 h-5 text-white" /></div>
             <div>
-              <p className="text-sm text-muted-foreground font-medium">{countdownLabel}</p>
-              {countdownVenue && <p className="text-xs text-muted-foreground">at {countdownVenue}</p>}
+              <p className="text-sm text-white/90 font-medium">{countdownLabel}</p>
+              {countdownVenue && <p className="text-xs text-white/70">at {countdownVenue}</p>}
             </div>
           </div>
           <div className="flex items-center gap-3 md:ml-auto">
-            {days > 0 && (<><div className="text-center"><div className="text-3xl md:text-4xl font-serif font-semibold text-primary tabular-nums">{days}</div><div className="text-xs text-muted-foreground uppercase tracking-wider">Days</div></div><span className="text-xl text-muted-foreground/50">:</span></>)}
-            <div className="text-center"><div className="text-3xl md:text-4xl font-serif font-semibold text-primary tabular-nums">{String(hours).padStart(2, '0')}</div><div className="text-xs text-muted-foreground uppercase tracking-wider">Hrs</div></div>
-            <span className="text-xl text-muted-foreground/50">:</span>
-            <div className="text-center"><div className="text-3xl md:text-4xl font-serif font-semibold text-primary tabular-nums">{String(minutes).padStart(2, '0')}</div><div className="text-xs text-muted-foreground uppercase tracking-wider">Min</div></div>
-            <span className="text-xl text-muted-foreground/50">:</span>
-            <div className="text-center"><div className="text-3xl md:text-4xl font-serif font-semibold text-primary tabular-nums">{String(seconds).padStart(2, '0')}</div><div className="text-xs text-muted-foreground uppercase tracking-wider">Sec</div></div>
+            {days > 0 && (<><div className="text-center"><div className="text-3xl md:text-4xl font-serif font-semibold text-ethnic-gold tabular-nums">{days}</div><div className="text-xs text-white/70 uppercase tracking-wider">Days</div></div><span className="text-xl text-white/40">:</span></>)}
+            <div className="text-center"><div className="text-3xl md:text-4xl font-serif font-semibold text-ethnic-gold tabular-nums">{String(hours).padStart(2, '0')}</div><div className="text-xs text-white/70 uppercase tracking-wider">Hrs</div></div>
+            <span className="text-xl text-white/40">:</span>
+            <div className="text-center"><div className="text-3xl md:text-4xl font-serif font-semibold text-ethnic-gold tabular-nums">{String(minutes).padStart(2, '0')}</div><div className="text-xs text-white/70 uppercase tracking-wider">Min</div></div>
+            <span className="text-xl text-white/40">:</span>
+            <div className="text-center"><div className="text-3xl md:text-4xl font-serif font-semibold text-ethnic-gold tabular-nums">{String(seconds).padStart(2, '0')}</div><div className="text-xs text-white/70 uppercase tracking-wider">Sec</div></div>
           </div>
         </div>
       </div>
@@ -336,7 +336,7 @@ export default function DashboardPage() {
 
   if (isLoading || authLoading) {
     return (
-      <div className="min-h-screen bg-white">
+      <div className="page-shell">
         <BotanicalHeader />
         <div className="flex items-center justify-center min-h-[60vh]">
           <Loader2 className="w-8 h-8 animate-spin text-primary" />
@@ -348,7 +348,7 @@ export default function DashboardPage() {
 
   if (weddings.length === 0) {
     return (
-      <div className="min-h-screen bg-white">
+      <div className="page-shell">
         <BotanicalHeader />
         <main className="pt-24 pb-20">
           <div className="max-w-xl mx-auto px-6 text-center">
@@ -364,7 +364,7 @@ export default function DashboardPage() {
   }
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="page-shell">
       <BotanicalHeader />
 
       <main className="pt-24 pb-20">
@@ -526,15 +526,15 @@ export default function DashboardPage() {
       </main>
 
       {/* Chat FAB */}
-      <motion.button onClick={() => setIsChatOpen(true)} className="fixed bottom-6 right-6 w-14 h-14 rounded-full bg-primary text-white flex items-center justify-center shadow-lg hover:shadow-xl transition-shadow z-40" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+      <motion.button onClick={() => setIsChatOpen(true)} className="fixed bottom-6 right-6 w-14 h-14 rounded-full bg-ethnic-gradient text-white flex items-center justify-center shadow-lg hover:shadow-xl ring-2 ring-ethnic-gold/50 transition-shadow z-40" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
         <MessageCircle className="w-6 h-6" />
       </motion.button>
 
       {/* Chat Drawer */}
       <AnimatePresence>
         {isChatOpen && (
-          <motion.div initial={{ x: '100%' }} animate={{ x: 0 }} exit={{ x: '100%' }} transition={{ type: 'spring', damping: 25, stiffness: 300 }} className="fixed inset-y-0 right-0 w-full md:w-96 bg-white border-l border-border shadow-2xl z-50 flex flex-col">
-            <div className="p-4 border-b border-border flex items-center justify-between bg-primary text-white">
+          <motion.div initial={{ x: '100%' }} animate={{ x: 0 }} exit={{ x: '100%' }} transition={{ type: 'spring', damping: 25, stiffness: 300 }} className="fixed inset-y-0 right-0 w-full md:w-96 bg-card border-l-2 border-ethnic-gold/40 shadow-2xl z-50 flex flex-col">
+            <div className="p-4 border-b border-ethnic-gold/30 flex items-center justify-between bg-ethnic-gradient text-white">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center"><Bot className="w-5 h-5" /></div>
                 <div><p className="font-medium">AI Assistant</p><p className="text-xs text-white/70">Ask me anything about your wedding</p></div>

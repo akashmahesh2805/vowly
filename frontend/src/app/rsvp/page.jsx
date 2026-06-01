@@ -92,7 +92,7 @@ function RSVPContent() {
 
   if (submitted) {
     return (
-      <div className="min-h-screen bg-white">
+      <div className="page-shell">
         <BotanicalHeader />
         <main className="pt-24 pb-20 flex items-center justify-center min-h-[70vh]">
           <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} className="card-botanical max-w-md w-full mx-6 text-center">
@@ -114,7 +114,7 @@ function RSVPContent() {
   }
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="page-shell">
       <BotanicalHeader />
 
       <main className="pt-24 pb-20">
@@ -234,7 +234,7 @@ function RSVPContent() {
 export default function RSVPPage() {
   return (
     <Suspense fallback={
-      <div className="min-h-screen bg-white flex items-center justify-center">
+      <div className="page-shell flex items-center justify-center">
         <Loader2 className="w-8 h-8 animate-spin text-primary" />
       </div>
     }>
