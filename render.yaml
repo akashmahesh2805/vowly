@@ -24,4 +24,3 @@ services:
     envVars:
       - key: NEXT_PUBLIC_BACKEND_URL
         value: https://vowly-backend.onrender.com
-    serviceIdleTimeoutMinutes: 15
