@@ -982,6 +982,29 @@
       ],
       "vendors": [],
       "creatorId": "27d1e48d-1934-4848-9d90-93ce93e51694"
+    },
+    {
+      "id": "b5889696-9f17-43b0-9e32-a64528c4e0e8",
+      "name": "Raj weds Lasya",
+      "location": "Bengaluru, Karnataka, India",
+      "startDate": "2026-06-04",
+      "endDate": "2026-06-09",
+      "days": [
+        {
+          "dayIndex": 0,
+          "date": "2026-06-04",
+          "events": [
+            {
+              "id": "7e6cdb62-2e74-4bb4-af74-8638d19a83a8",
+              "name": "Sangeet",
+              "time": "18:42",
+              "venue": "Main Hall"
+            }
+          ]
+        }
+      ],
+      "vendors": [],
+      "creatorId": "9d276fcf-786a-4d73-9e59-99463ed1c69b"
     }
   ]
 }
