@@ -3,6 +3,7 @@
 ## Quick Start (5 minutes)
 
 ### Step 1: Push to GitHub
+
 ```bash
 git add .
 git commit -m "Prepare for Render deployment"
@@ -10,6 +11,7 @@ git push
 ```
 
 ### Step 2: Connect to Render
+
 1. Go to [render.com](https://render.com) and sign up (free)
 2. Click "New +" → "Blueprint"
 3. Connect your GitHub repository
@@ -17,6 +19,7 @@ git push
 5. Select this repository and branch
 
 ### Step 3: Render Auto-Deploys
+
 - Render reads `render.yaml` automatically
 - Deploys both backend and frontend
 - Takes ~5-10 minutes for first deploy
@@ -25,6 +28,7 @@ git push
   - Frontend: `https://vowly-frontend.onrender.com`
 
 ### Step 4: Share with Team
+
 - Copy the frontend URL from Render dashboard
 - Share with teammates: `https://vowly-frontend.onrender.com`
 - Backend automatically connected via environment variables
@@ -34,6 +38,7 @@ git push
 ## What's Been Set Up
 
 ### Backend (`render.yaml`)
+
 - ✅ Python 3.11 runtime
 - ✅ FastAPI with Gunicorn (production WSGI)
 - ✅ JSON file storage (no database needed)
@@ -42,6 +47,7 @@ git push
 - ✅ Free tier: 750 compute hours/month
 
 ### Frontend (`render.yaml`)
+
 - ✅ Node.js runtime
 - ✅ Next.js optimized build
 - ✅ Environment variable: `NEXT_PUBLIC_BACKEND_URL` auto-configured
@@ -53,11 +59,13 @@ git push
 ## Environment Variables (Already Configured)
 
 Backend:
+
 - `USE_MONGODB=false` (using JSON files)
 - `CORS_ORIGINS=https://vowly-frontend.onrender.com`
 - `GROQ_API_KEY=` (optional, AI features work without it)
 
 Frontend:
+
 - `NEXT_PUBLIC_BACKEND_URL=https://vowly-backend.onrender.com`
 
 ---
@@ -79,16 +87,19 @@ Frontend:
 ## Troubleshooting
 
 ### Backend won't start?
+
 - Check logs in Render dashboard
 - Ensure `gunicorn` is in `requirements.txt`
 - Verify `server.py` exists in `backend/` directory
 
 ### Frontend shows 404?
+
 - Wait 10-15 minutes for complete build
 - Check `NEXT_PUBLIC_BACKEND_URL` in environment variables
 - Verify backend is responding: `https://vowly-backend.onrender.com/api/health`
 
 ### Services going to sleep?
+
 - Render free tier sleeps after 15 min inactivity
 - To prevent: upgrade to paid tier (~$7/month each)
 - Or accept the 30-second wake time
@@ -116,6 +127,7 @@ Frontend:
 ## Team Access
 
 Once deployed:
+
 1. Share frontend URL with teammates
 2. They can access without any setup
 3. Data syncs across all users (JSON files)
