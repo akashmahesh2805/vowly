@@ -14,7 +14,6 @@ services:
         value: https://vowly-frontend.onrender.com
       - key: GROQ_API_KEY
         value: ""
-    serviceIdleTimeoutMinutes: 15
 
   - type: web
     name: vowly-frontend
